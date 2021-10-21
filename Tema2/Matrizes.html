@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Matrices Vacilonas</title>
+</head>
+<body>
+<input type="number" id="numero" value="5" min="1" max="10" />
+<p id="parrafo">----</p>
+<input type="button" onclick="dale()" value="dale">
+
+<script>
+function dale(){
+let filas = document.getElementById("numero").value;
+let texto = "";
+for (let i=0;i<filas;i++){
+let linea="";
+for (let j=0;j<filas;j++){
+linea+=elemento(i,j)+"&nbsp";
+}
+texto+=linea+"<br>";
+}
+let matrizvacilona = document.getElementById("parrafo");
+matrizvacilona.innerHTML = texto;
+}
+
+function elemento(fila,columna){
+if (fila==0) return 1;
+if (columna==0) return 1;
+return (elemento(fila,columna-1)+elemento(fila-1,columna));
+}
+
+</script>
+</body>
+</html>
