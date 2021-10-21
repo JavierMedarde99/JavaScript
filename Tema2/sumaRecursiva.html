@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Sumatorio</title>
+</head>
+<body>
+
+<p id="parrafo"></p>
+
+
+<script>
+let num=0;
+arra=[1];
+
+
+function sumatorio(arr,indice){
+    if(indice!= (-1)){
+    
+ num = num +arr[indice];
+return  sumatorio(arr, indice-1);
+}else{
+    return num;
+}
+    
+
+
+}
+
+document.getElementById('parrafo').innerHTML= sumatorio(arra,arra.length-1);
+
+</script>
+</body>
+</html>
