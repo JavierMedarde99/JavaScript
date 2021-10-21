@@ -1,0 +1,53 @@
+<html>
+ <head>
+   <title>Cuenta elemento no repetidos de un array</title>
+ </head>
+ <body>
+   <h1>Cuenta atras</h1>
+
+  
+   <script>
+     
+  
+    
+   
+console.log(numLetra(456));
+   
+
+    function numLetra(numero){
+     
+       let cifras=[];
+       let numlargo = (''+numero).length;
+      console.log(numlargo);
+       
+       for(let i=0;i<numlargo;i++){
+       
+       if( i>=1){
+         
+        numero =  (numero/10);
+        cifras.push(numero%10);
+       console.log(numero%10);
+       numero=numero-1;
+       numero=numero.toFixed();
+       
+       console.log(numero);
+       }else{
+        cifras.push(numero%10);
+         numero =  numero/10;
+       console.log(numero%10);
+       numero=numero-1;
+       numero=numero.toFixed();
+       console.log(numero);
+       }
+       
+       }
+
+     // cifras.forEach(element => console.log(element))
+    }
+    
+    
+    
+   
+   </script>
+ </body>
+</html>
