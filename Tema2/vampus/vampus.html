@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>ARRAY VAMPIRO</title>
+    </head>
+    <body>
+<h1>ARRAY VAMPIRO</h1>
+<script>
+
+let arr=[1,2,3,4,5,6,5,4,3,2,1];
+
+
+function vampus(num,arr){
+    if(arr[num]!=arr[arr.length-num-1]){
+return "No es vampiro";
+    }else{
+if(num >= arr.length-1-num){
+    return "Es vampiro";
+}else{
+     return vampus(num+1,arr);
+}
+    }
+}
+
+console.log(vampus(0,arr));
+</script>
+
+    </body>
+</html>
