@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Recorrido array ordenado</title>
+</head>
+<body>
+<h1>Recorrido array ordenado</h1>
+<script>
+array=[1,2,3,4,5]; //Creamos un array
+
+Mostrar(array, 0); //Pasamos el array y la posición donde empieza
+
+function Mostrar(array,indice){
+   
+if(indice==array.length){
+    return;
+}else{
+console.log(array[indice]);
+ Mostrar(array,indice + 1);
+}
+
+}
+
+</script>
+</body>
+</html>
