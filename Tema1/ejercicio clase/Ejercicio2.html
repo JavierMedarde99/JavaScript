@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Cambio de imágenes con JavaScript</h1>
+<img id="myFPImage" onclick="cambiaPic()" src="https://colorazul.top/wp-content/uploads/2021/06/azul-electrico-1024x769.jpg" width="100" height="180">
+<p>Haz click sobre las letras para cambiarlas.</p>
+<script>
+function cambiaPic() {
+  var image = document.getElementById('myFPImage');
+  if (image.src.match("istockphoto")) {
+     image.src = "https://colorazul.top/wp-content/uploads/2021/06/azul-electrico-1024x769.jpg";
+  } else if(image.src.match("pedroamador")){
+     image.src = "https://media.istockphoto.com/photos/red-blurred-background-for-decor-picture-id1196215434?k=20&m=1196215434&s=612x612&w=0&h=0BN9V1JNCbaCzTpw0qDzOb-lhGqVU7GwvTgnYqmJ_bw=";
+  }else if(image.src.match("bangbranding")){
+     image.src = "https://www.pedroamador.com/wp-content/uploads/2014/01/campana-fondo-amarillo-en-redes-sociales.jpg" 
+  }else{
+     image.src = "https://bangbranding.com/blog/wp-content/uploads/2016/11/700x511_SliderInterior.jpg"
+  }
+}
+</script>
+</body>
+</html>
