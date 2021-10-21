@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BIG FOOT</title>
+</head>
+<body>
+
+<p id="txt">
+    Pie Grande (del inglés Bigfoot) o Sasquatch (según el nombre que le dan los pueblos indígenas 
+    originarios de Norteamérica —que procede de la adaptación al inglés de la palabra original 
+    del idioma halkomelem sásq'ets) es una criatura legendaria con el aspecto de un primate 
+    perteneciente a la familia de los homínidos, que suele verse en bosques a elevadas altitudes, 
+    principalmente en la región del noroeste del Pacífico en América del Norte.
+    
+    <br><br>
+    Crea un programa con una función recursiva que diga cual es la 
+    secuencia de Big foot's (sin la big) más largas para un array dado
+    Por ejemplo: <br><br>
+    foot -> tamaño 4<br>
+    foooot -> tamaño 6<br>
+    foooooot -> tamaño 8<br>
+    <p>
+
+<script>
+    let arr = ["F","O","O","O","O","O","T","T","T","T","T",];
+    function buscaFoot(num,arr){
+        // BUSCA FOOT O FOOOT
+        if (num == 3) return 0; //condición de parada
+        for (let i=0;i<arr.length-num+1;i++){
+            let posi=i;
+            let posj=i;
+            if (arr[i]=="F"){
+                while (posj<arr.length && arr[posj+1]=="O"){
+                    posj++;
+                    if (arr[posj+1]=="T"){
+                        posj++;
+                        if ((1+posj-posi)==num) return num; //encontrada la más larga. Condición de parada
+                    }
+                }
+            }
+        }
+        return (buscaFoot(num-1,arr));
+    }
+    console.log(buscaFoot(arr.length,arr))
+</script>
+
+</body>
+</html>
