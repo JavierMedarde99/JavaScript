@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <title>Pirámides de Calasparra</title>
+  </head>
+  <body>
+    <h1>Pandemi</h1>
+  
+    <script>
+      //matriz
+    let matriz=[["P","P","G","H","H","R"],
+        ["P","P","G","H","H","G"],
+        ["P","G","R","H","H","G"],
+        ["G","R","R","H","G","G"],
+        ["R","R","H","H","G","P"]];
+
+        //copia matriz
+        let newMatriz=JSON.parse(JSON.stringify(matriz));
+
+        //vemos la matriz original
+document.write("<table border>");
+        for(var i=0; i<matriz.length; i++) {
+          document.write("<tr>");
+    for(var j=0; j<matriz[i].length; j++) {
+
+      document.write("<td>");
+        document.write(matriz[i][j]);
+        document.write("</td>");
+    }
+    document.write("</tr>");
+  }
+  
+  document.write("</table>");
+
+  //llamamos a la funcion
+  let maxx=matriz.length;
+  let maxy = matriz[0].length
+let fila = 3-1;
+let columna = 4-1;
+   matar(fila,columna);
+//insertamos la nueva tabla
+   document.write("<br/>");
+document.write("<table border>");
+        
+        for(var i=0; i<matriz.length; i++) {
+          document.write("<tr>");
+    for(var j=0; j<matriz[i].length; j++) {
+
+      document.write("<td>");
+        document.write(matriz[i][j]);
+        document.write("</td>");
+    }
+    document.write("</tr>");
+  }
+  
+  document.write("</table>");
+
+
+  //funcion
+  function matar(fila,columna){
+   
+//capturo la especie
+let especie = matriz[fila][columna];
+//vacio el elemento 
+matriz[fila][columna]="";
+
+//comprueba arriba,abajo, izquierda y derecha
+
+//izquierda
+if(columna>0 && matriz[fila][columna-1]==especie){
+matar(fila,columna-1);
+}
+
+//derecha
+if(columna<maxy-1 && matriz[fila][columna+1]==especie){
+matar(fila,columna+1);
+}
+
+//arriba
+if(fila>0 && matriz[fila-1][columna]==especie){
+matar(fila-1,columna);
+}
+
+//abajo
+if(fila<maxx-1 && matriz[fila+1][columna]==especie){
+matar(fila+1,columna);
+}
+}
+
+    </script>
+  </body>
+</html>
