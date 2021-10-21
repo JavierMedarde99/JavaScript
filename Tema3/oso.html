@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OSo</title>
+  <meta cahrset="UTC-8"/>
+</head>
+<body>
+
+<script>
+
+
+//aqui ponemos las filas que queremos que tenga nuestra matriz
+function crearMatriz(filas) {
+  var arr = [];
+
+  for (var i=0;i<filas;i++) {
+     arr[i] = [];
+  }
+
+  return arr;
+}
+
+var matriz= crearMatriz(4)
+
+//funcion aleatoria
+let aleatorio =(min,max)=>Math.round(Math.random()*(max-min)+min);
+
+//funcion para poner las 'o' o 's' en el array 
+//y poner las columnas que quiera
+function rellenarMatriz(matriz,columnas){
+
+    for(var i=0; i<matriz.length; i++) {
+    
+    for(var j=0; j<columnas; j++) {
+        numale=aleatorio(0,2);
+        if(numale==0){
+            matriz[i].push('s');
+        }else{
+            matriz[i].push('o');
+        }
+        
+    }
+}
+return matriz;
+}
+
+matrizRellena=rellenarMatriz(matriz,4);
+console.table(matrizRellena);
+
+//copia del array
+let matrizSolucion = JSON.parse(JSON.stringify(matrizRellena));
+
+function solucion(matriz){
+    for(var i=0; i<matriz.length; i++) {
+    
+    for(var j=0; j<matriz[i].length; j++) {
+        if(j+2<matriz[i].length){
+            if(matriz[i][j]=='o'){
+                if(matriz[i][j+1]=='s'){
+                    if(matriz[i][j+2]=='0'){
+                        matriz.splice(j,3)
+                    }
+                }
+        }
+        }
+        
+        
+    }
+}
+}
+
+console.table(solucion(matrizSolucion));
+</script>
+
+
+</body>
+</html>
