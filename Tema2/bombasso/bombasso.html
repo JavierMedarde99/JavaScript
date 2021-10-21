@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>BOMBASSO</h2>
+<p> Se pide que crees un programa que genere un campo de minas.
+Las minas se colocan de forma aleatoria pero teniendo
+en cuenta que no se deben colocar dos minas juntas.
+realiza el programa para que genere 10, 20 o todas
+las minas que se puedan instalar.
+</p>
+<p id="demo"></p>
+<script>
+
+    //array
+var arr = [[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "]
+
+];
+
+//funcion para generar numeros aleatorios
+function generateRandomInt(min,max){
+return Math.floor((Math.random() * (max-min)) +min);
+}
+//copia del array
+let newarr = JSON.parse(JSON.stringify(arr));
+
+//numero de bombas
+    let generar=100;
+
+    //numeros maximos
+let maxx=arr.length;
+  let maxy = arr[0].length;
+
+  //imprimimos por consola
+  console.log(arr);
+console.log(newarr);
+
+//Llamamos a la funcion
+bombas(generar);
+
+//funcion
+function bombas (generar){
+    generar=generar;
+for(let i=0;i<generar;i++){
+    //numero aleatorios
+   filaRandom= generateRandomInt(0,maxx);
+   
+   columnaRandom =generateRandomInt(0,maxy);
+   
+   
+   //primera bomba
+   if(i==0){
+    newarr[filaRandom][columnaRandom]="*";
+   }
+
+  
+if(filaRandom<maxx-1 || newarr[filaRandom+1][columnaRandom]==" " && columnaRandom>0 || newarr[filaRandom][columnaRandom-1]==" " &&filaRandom>0 || newarr[filaRandom-1][columnaRandom]==" "&& columnaRandom<maxy-1 || newarr[filaRandom][columnaRandom+1]==" " ){
+    newarr[filaRandom][columnaRandom]="*";
+    console.log(filaRandom);
+    console.log(columnaRandom);
+    
+    
+}else{
+    i--;
+}
+}
+}
+</script>
+</body>
+</html>
