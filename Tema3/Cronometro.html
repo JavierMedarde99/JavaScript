@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BIG FOOT</title>
+  <meta cahrset="UTC-8"/>
+</head>
+<body>
+
+<p id='laHora'>Tiempo</p>
+<button type="button" onclick="Play()">Play</button>
+<button type="button" onclick="Stop()">Stop</button>
+<button type="button">Reset</button>
+
+<script>
+function crono(){
+    var elCrono;
+    var mifecha = new Date();
+    var horas= mifecha.getHours();
+    var minutos = mifecha.getMinutes();
+    var segundos = mifecha.getSeconds();
+    
+    if(horas<10){horas='0'+horas}
+    if(minutos<10){minutos='0'+minutos}
+    if(segundos<10){segundos='0'+segundos}
+
+    var texto = document.getElementById('laHora');
+    texto.innerHTML=horas+':'+minutos+':'+segundos;
+   
+}
+
+function Play(){
+    elcrono =setInterval(crono,1000);
+}
+
+function Stop(){
+  clearInterval(elcrono);
+}
+
+function Reset(){
+  
+}
+
+crono();
+</script>
+
+
+</body>
+</html>
