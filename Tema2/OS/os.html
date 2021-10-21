@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SECUENCIA DE O's</title>
+</head>
+<body>
+<p id="txt">Crea un programa con una función recursiva que diga cual es
+la secuencia de O's más largas para un array dado<p>
+<script>
+let arr = ["s","o","o","s","o","o","o","o"];
+let num=0;
+let cont=1;
+let arrcont=[];
+
+function os(array, numero,cont,arrcont){  
+   
+if(numero == array.length-1){
+    arrcont.push(cont);
+ return Math.max.apply(Math, arrcont);
+}else{
+  
+    if(array[numero]!=array[numero+1]){
+        cont++;
+    arrcont.push(cont);
+    
+cont=0;
+return os(array, numero+1,cont,arrcont);
+
+}else{
+    cont++;
+    return os(array, numero+1,cont,arrcont);
+}
+
+}
+    
+}
+
+console.log(os(arr,num,cont,arrcont));
+</script>
+</body>
+</html>
