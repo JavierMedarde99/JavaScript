@@ -1,0 +1,32 @@
+<html>
+ <head>
+   <title>Cuenta elemento no repetidos de un array</title>
+ </head>
+ <body>
+   <h1>Cuenta atras</h1>
+
+  
+   <script>
+     
+    let numero=17;
+   
+
+    function primo(numero, divisor){
+        
+        if(numero==divisor){
+            return true;
+        }else {
+            if(numero%divisor==0){
+                return false;
+            }else{
+                return primo(numero,divisor+1);
+            }
+        
+        }
+    }
+    
+    console.log(primo(numero,2));
+   
+   </script>
+ </body>
+</html>
