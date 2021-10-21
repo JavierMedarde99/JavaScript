@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<body><!DOCTYPE html>
+<html>
+<body>
+<h2>kulevrilla Zostérica</h2>
+<script>
+var arr = [[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," ","*"," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "]
+
+];
+function generateRandomInt(min,max){
+return Math.floor((Math.random() * (max-min)) +min);
+}
+
+let x;
+let y;
+
+//buscamos el inicio de la culebra
+function encontrar_cola(arr){
+for(let i=0; i<arr.length;i++){
+    for(let j=0; j<arr[i].length;j++ ){
+
+        if(arr[i][j]=="*"){
+            x=i;
+            y=j;
+        }
+
+    }
+
+}
+}
+
+encontrar_cola(arr);
+
+
+function crecer(f,c){
+//comprobamos donde estamos si se puede generar
+ let numale= generateRandomInt(0,3);
+//0 arriba
+ if(numale==0 && comprobar(f-1,c)==1 && arr[f-1][c]!="*"){
+
+f--;
+arr[f][c]="*";
+return crecer(f,c);
+ }
+
+ //1 abajo
+ if(numale==1 && comprobar(f+1,c)==1 && arr[f+1][c]!="*"){
+
+f++;
+arr[f][c]="*";
+return crecer(f,c);
+ }
+
+ //2 derecha
+ if(numale==2 && comprobar(f,c+1)==1 && arr[f][c+1]!="*"){
+
+c++;
+arr[f][c]="*";
+return crecer(f,c);
+ }
+
+ //3 izquierda
+ if(numale==3 && comprobar(f,c-1)==1 && arr[f][c-1]!="*"){
+
+c--;
+arr[f][c]="*";
+return crecer(f,c);
+ }
+}
+
+
+function comprobar(f,c){
+cont=0;
+//norte
+if(f>0 && arr[f-1][c]=="*"){
+ cont++;
+}
+//sur
+if(f<arr.length-1 && arr[f+1][c]=="*"){
+    cont++;
+}
+//este
+if(c<arr[f].length-1 && arr[f][c+1]=="*"){
+    cont++;
+}
+//oeste
+if(c>0 && arr[f][c-1]=="*"){
+    cont++;
+}
+return cont;
+}
+
+crecer(x,y);
+console.log(arr)
+</script>
+</body>
+</html>
