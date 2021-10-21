@@ -1,0 +1,27 @@
+<html>
+ <head>
+   <title>Cuenta elemento no repetidos de un array</title>
+ </head>
+ <body>
+   <h1>Cuenta atras</h1>
+
+  
+   <script>
+     
+    let numero=10
+   
+
+    function cuenta(numero){
+        
+        if(numero==0){
+            return;
+        }
+        console.log(numero);
+
+        return cuenta(numero-1);
+    }
+
+    console.log(cuenta(numero));
+   </script>
+ </body>
+</html>
