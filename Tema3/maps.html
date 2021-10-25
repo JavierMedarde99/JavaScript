@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>maps</title>
 </head>
 <body>
+<p id="resultado">Tenemos el array definido de la siguiente manera:
+    let numeros = [1, 2, 3, 4, 5, 6, 7]; cuando pulses el botón aquí
+    aparecerán los mismos números incrementados en uno</p>
+<button onclick="dale()">ejecuta</button>
+<script>
+    let numeros = [1,2,3,4,5,6,7];
 
+
+        function dale() {
+            let obj = document.getElementById("resultado")
+           /* obj.innerHTML = numeros.map((valor)=>{ if(valor%2==0){
+                return "par";
+            }else{
+                return "impar";
+            } });*/
+            obj.innerHTML = numeros.map((valor)=> {return valor%2==0 ?  "par" :  "impar"})
+        }
+
+</script>
 </body>
 </html>
