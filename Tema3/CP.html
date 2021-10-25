@@ -5,10 +5,15 @@
     <title>Codigo Postal</title>
 </head>
 <body>
-<p id="resultado"></p>
+<form action="CP.html" type="POST">
+    <label for="ciudad">Ciudad</label>
+    <input type="text" id="ciudad" >
+</form>
 <button onclick="dale()">buscar</button>
 <script>
-
+let array = [{cp: 28924, ciudad: "Estepona"}, {cp:29601 , ciudad:"Marbella"}, {cp:29610 , ciudad:"Ojen"}];
+let ciudadform = document.getElementById("ciudad").value;
+obj.innerHTML = array.map( (ciudad , indie)=>{return valor+indie;})
 </script>
 </body>
 </html>
