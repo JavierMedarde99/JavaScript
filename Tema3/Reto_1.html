@@ -12,8 +12,10 @@
 </p>
 <button onclick="dale()">ejecuta</button>
 <script>
+    let obj = document.getElementById("resultado")
     let numeros = [1, 2, 3, 4, 5, 6, 7];
     function dale() {
+        obj.innerHTML = numeros.map( (valor , indie)=>{return valor+indie;})
     }
 </script>
 </body>
