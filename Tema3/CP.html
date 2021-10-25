@@ -5,15 +5,28 @@
     <title>Codigo Postal</title>
 </head>
 <body>
-<form action="CP.html" type="POST">
+
     <label for="ciudad">Ciudad</label>
-    <input type="text" id="ciudad" >
-</form>
+    <input type="text" id="ciudad" value="mar">
+
+<p id="resultado"></p>
 <button onclick="dale()">buscar</button>
 <script>
-let array = [{cp: 28924, ciudad: "Estepona"}, {cp:29601 , ciudad:"Marbella"}, {cp:29610 , ciudad:"Ojen"}];
-let ciudadform = document.getElementById("ciudad").value;
-obj.innerHTML = array.map( (ciudad , indie)=>{return valor+indie;})
+
+
+        let array = [{cp: 28924, ciudad: "estepona"}, {cp: 29601, ciudad: "marbella"}, {cp: 29610, ciudad: "ojen"}];
+
+
+        function dale() {
+            document.getElementById("resultado").innerHTML="";
+        array.map((valor) => {
+            let ciudadform = document.getElementById("ciudad").value;
+            if (valor.ciudad.includes(ciudadform.toLowerCase())) {
+                document.getElementById("resultado").innerHTML=valor.ciudad+"-"+valor.cp;
+            }
+        })
+
+    }
 </script>
 </body>
 </html>
