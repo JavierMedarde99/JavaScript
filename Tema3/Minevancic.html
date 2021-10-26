@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minevanicic</title>
+        <meta charset="UTC-8" />
+    </head>
+    <body>
+        <script>
+            let minas = [
+[0,0,0,0,0,0,0,1],
+[0,1,0,0,0,0,0,0],
+[0,1,0,0,0,0,0,0],
+[0,0,0,0,0,1,0,0],
+[0,0,0,0,0,1,0,0],
+[0,0,0,0,0,0,0,0]
+];
+
+function color(array){
+var matriz= new Array;
+
+var resultado = array[0].map((valor,posicion)=>{
+// si es una mina dejar la mina
+    if(valor==1){
+        return valor;
+    }
+//comprobamos en horizontal abajo
+if(minas[1][posicion]==1){
+    return valor+2;
+}
+
+//comprovamos vertical derecha
+if(posicion!=array[0].length-1 && array[0][posicion+1]==1){
+return valor+2;
+}
+
+//comprovamos vertical izquierda
+if(posicion!=0 && array[0][posicion-1]==1){
+return valor+2;
+}
+
+//diagonal abajo izquierda 
+if(posicion!=0 && array[1][posicion-1]==1){
+    return valor+2;
+}
+//diagonal abajo derecha 
+if(posicion!=array[0].length-1 && array[1][posicion+1]==1){
+    return valor+2;
+}
+
+return valor;
+});
+
+matriz.push(resultado);
+return matriz;
+
+}
+
+console.table(minas);
+
+console.table(color(minas));
+        </script>
+    </body>
+</html>
