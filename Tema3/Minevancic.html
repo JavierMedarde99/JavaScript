@@ -14,75 +14,44 @@
 [0,0,0,0,0,1,0,0],
 [0,0,0,0,0,0,0,0]
 ];
-function colorFila1(array){
-    var matriz= new Array;
 
-var resultado = array[0].map((valor,posicion)=>{
-// si es una mina dejar la mina
-    if(valor==1){
-        return valor;
-    }
-//comprobamos en horizontal abajo y comprovamos vertical derecha y comprovamos vertical izquierda y diagonal abajo izquierda y diagonal abajo derecha 
-if(minas[1][posicion]==1 || posicion!=array[0].length-1 && array[0][posicion+1]==1 || posicion!=0 && array[0][posicion-1]==1 || posicion!=0 && array[1][posicion-1]==1 
-|| posicion!=array[0].length-1 && array[1][posicion+1]==1){
-    return valor+2;
-}
-
-return valor;
-});
-
-matriz.push(resultado);
-return matriz;
-
-}
-
-function colorFilaFinal(array){
-
-ultima = array.length-1;
-var resultado = array[ultima].map((valor,posicion)=>{
-// si es una mina dejar la mina
-    if(valor==1){
-        return valor;
-    }
-
- //comprobamos en horizontal arriba comprovamos vertical derecha comprovamos vertical izquierda diagonal arriba izquierda diagonal arriba derecha
- if(minas[ultima-1][posicion]==1 || posicion!=array[ultima].length-1 && array[ultima][posicion+1]==1 || posicion!=0 && array[ultima][posicion-1]==1 ||
- posicion!=0 && array[ultima-1][posicion-1]==1 || posicion!=array[ultima].length-1 && array[ultima-1][posicion+1]==1){
-    return valor+2;
-}
-
-return valor;
-});
-
-
-return resultado;
-
-}
 
 
 function color(array){
-matriz=colorFila1(array);
-for(let i=1;i<array.length-2;i++){
+    var matriz= new Array;
+
+for(let i=0;i<array.length-1;i++){
 var resultado = array[i].map((valor,posicion)=>{
 // si es una mina dejar la mina
 if(valor==1){
         return valor;
     }
-
+    //primera fila
+if(i==0){
+    if(minas[1][posicion]==1 || posicion!=array[0].length-1 && array[0][posicion+1]==1 || posicion!=0 && array[0][posicion-1]==1 || posicion!=0 && array[1][posicion-1]==1 
+|| posicion!=array[0].length-1 && array[1][posicion+1]==1){
+    return valor+2;
+}
+}else if(i!=array.length-1){
     //comprobamos todo
 if(minas[i+1][posicion]==1 || minas[i-1][posicion]==1 || posicion!=array[i].length-1 && array[i][posicion+1]==1 || posicion!=0 && array[i][posicion-1]==1 ||
 posicion!=0 && array[i+1][posicion-1]==1 ||posicion!=array[i].length-1 && array[i+1][posicion+1]==1 || posicion!=0 && array[i-1][posicion-1]==1 ||
  posicion!=array[i].length-1 && array[i-1][posicion+1]==1){
     return valor+2;
 }
-
+//ultima fila
+}else{
+    if(minas[ultima-1][posicion]==1 || posicion!=array[ultima].length-1 && array[ultima][posicion+1]==1 || posicion!=0 && array[ultima][posicion-1]==1 ||
+ posicion!=0 && array[ultima-1][posicion-1]==1 || posicion!=array[ultima].length-1 && array[ultima-1][posicion+1]==1){
+    return valor+2;
+}
+}
 return valor;
 
 });
 matriz.push(resultado);
 }
-ultimaFila = colorFilaFinal(array);
-matriz.push(ultimaFila);
+
 return matriz;
 }
 
