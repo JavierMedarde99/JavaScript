@@ -54,6 +54,49 @@ return matriz;
 
 }
 
+function colorFilaFinal(array){
+
+ultima = array.length-1;
+var resultado = array[ultima].map((valor,posicion)=>{
+// si es una mina dejar la mina
+    if(valor==1){
+        return valor;
+    }
+
+ //comprobamos en horizontal arriba
+ if(minas[ultima-1][posicion]==1){
+    return valor+2;
+}
+
+
+//comprovamos vertical derecha
+if(posicion!=array[ultima].length-1 && array[ultima][posicion+1]==1){
+return valor+2;
+}
+
+//comprovamos vertical izquierda
+if(posicion!=0 && array[ultima][posicion-1]==1){
+return valor+2;
+}
+
+//diagonal arriba izquierda
+if(posicion!=0 && array[ultima-1][posicion-1]==1){
+    return valor+2;
+}
+
+//diagonal arriba derecha
+if(posicion!=array[ultima].length-1 && array[ultima-1][posicion+1]==1){
+    return valor+2;
+}
+
+return valor;
+});
+
+
+return resultado;
+
+}
+
 
 function color(array){
 matriz=colorFila1(array);
@@ -108,6 +151,8 @@ return valor;
 });
 matriz.push(resultado);
 }
+ultimaFila = colorFilaFinal(array);
+matriz.push(ultimaFila);
 return matriz;
 }
 
