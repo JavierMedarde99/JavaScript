@@ -22,27 +22,9 @@ var resultado = array[0].map((valor,posicion)=>{
     if(valor==1){
         return valor;
     }
-//comprobamos en horizontal abajo
-if(minas[1][posicion]==1){
-    return valor+2;
-}
-
-//comprovamos vertical derecha
-if(posicion!=array[0].length-1 && array[0][posicion+1]==1){
-return valor+2;
-}
-
-//comprovamos vertical izquierda
-if(posicion!=0 && array[0][posicion-1]==1){
-return valor+2;
-}
-
-//diagonal abajo izquierda 
-if(posicion!=0 && array[1][posicion-1]==1){
-    return valor+2;
-}
-//diagonal abajo derecha 
-if(posicion!=array[0].length-1 && array[1][posicion+1]==1){
+//comprobamos en horizontal abajo y comprovamos vertical derecha y comprovamos vertical izquierda y diagonal abajo izquierda y diagonal abajo derecha 
+if(minas[1][posicion]==1 || posicion!=array[0].length-1 && array[0][posicion+1]==1 || posicion!=0 && array[0][posicion-1]==1 || posicion!=0 && array[1][posicion-1]==1 
+|| posicion!=array[0].length-1 && array[1][posicion+1]==1){
     return valor+2;
 }
 
@@ -63,29 +45,9 @@ var resultado = array[ultima].map((valor,posicion)=>{
         return valor;
     }
 
- //comprobamos en horizontal arriba
- if(minas[ultima-1][posicion]==1){
-    return valor+2;
-}
-
-
-//comprovamos vertical derecha
-if(posicion!=array[ultima].length-1 && array[ultima][posicion+1]==1){
-return valor+2;
-}
-
-//comprovamos vertical izquierda
-if(posicion!=0 && array[ultima][posicion-1]==1){
-return valor+2;
-}
-
-//diagonal arriba izquierda
-if(posicion!=0 && array[ultima-1][posicion-1]==1){
-    return valor+2;
-}
-
-//diagonal arriba derecha
-if(posicion!=array[ultima].length-1 && array[ultima-1][posicion+1]==1){
+ //comprobamos en horizontal arriba comprovamos vertical derecha comprovamos vertical izquierda diagonal arriba izquierda diagonal arriba derecha
+ if(minas[ultima-1][posicion]==1 || posicion!=array[ultima].length-1 && array[ultima][posicion+1]==1 || posicion!=0 && array[ultima][posicion-1]==1 ||
+ posicion!=0 && array[ultima-1][posicion-1]==1 || posicion!=array[ultima].length-1 && array[ultima-1][posicion+1]==1){
     return valor+2;
 }
 
@@ -107,42 +69,10 @@ if(valor==1){
         return valor;
     }
 
-    //comprobamos en horizontal abajo
-if(minas[i+1][posicion]==1){
-    return valor+2;
-}
-
-   //comprobamos en horizontal arriba
-   if(minas[i-1][posicion]==1){
-    return valor+2;
-}
-
-//comprovamos vertical derecha
-if(posicion!=array[i].length-1 && array[i][posicion+1]==1){
-return valor+2;
-}
-
-//comprovamos vertical izquierda
-if(posicion!=0 && array[i][posicion-1]==1){
-return valor+2;
-}
-
-//diagonal abajo izquierda 
-if(posicion!=0 && array[i+1][posicion-1]==1){
-    return valor+2;
-}
-//diagonal abajo derecha 
-if(posicion!=array[i].length-1 && array[i+1][posicion+1]==1){
-    return valor+2;
-}
-
-//diagonal arriba izquierda
-if(posicion!=0 && array[i-1][posicion-1]==1){
-    return valor+2;
-}
-
-//diagonal arriba derecha
-if(posicion!=array[i].length-1 && array[i-1][posicion+1]==1){
+    //comprobamos todo
+if(minas[i+1][posicion]==1 || minas[i-1][posicion]==1 || posicion!=array[i].length-1 && array[i][posicion+1]==1 || posicion!=0 && array[i][posicion-1]==1 ||
+posicion!=0 && array[i+1][posicion-1]==1 ||posicion!=array[i].length-1 && array[i+1][posicion+1]==1 || posicion!=0 && array[i-1][posicion-1]==1 ||
+ posicion!=array[i].length-1 && array[i-1][posicion+1]==1){
     return valor+2;
 }
 
