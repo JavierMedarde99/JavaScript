@@ -14,9 +14,8 @@
 [0,0,0,0,0,1,0,0],
 [0,0,0,0,0,0,0,0]
 ];
-
-function color(array){
-var matriz= new Array;
+function colorFila1(array){
+    var matriz= new Array;
 
 var resultado = array[0].map((valor,posicion)=>{
 // si es una mina dejar la mina
@@ -53,6 +52,10 @@ return valor;
 matriz.push(resultado);
 return matriz;
 
+}
+function color(array){
+matriz=colorFila1(array);
+return matriz;
 }
 
 console.table(minas);
