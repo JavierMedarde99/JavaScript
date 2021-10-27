@@ -53,8 +53,61 @@ matriz.push(resultado);
 return matriz;
 
 }
+
+
 function color(array){
 matriz=colorFila1(array);
+for(let i=1;i<array.length-2;i++){
+var resultado = array[i].map((valor,posicion)=>{
+// si es una mina dejar la mina
+if(valor==1){
+        return valor;
+    }
+
+    //comprobamos en horizontal abajo
+if(minas[i+1][posicion]==1){
+    return valor+2;
+}
+
+   //comprobamos en horizontal arriba
+   if(minas[i-1][posicion]==1){
+    return valor+2;
+}
+
+//comprovamos vertical derecha
+if(posicion!=array[i].length-1 && array[i][posicion+1]==1){
+return valor+2;
+}
+
+//comprovamos vertical izquierda
+if(posicion!=0 && array[i][posicion-1]==1){
+return valor+2;
+}
+
+//diagonal abajo izquierda 
+if(posicion!=0 && array[i+1][posicion-1]==1){
+    return valor+2;
+}
+//diagonal abajo derecha 
+if(posicion!=array[i].length-1 && array[i+1][posicion+1]==1){
+    return valor+2;
+}
+
+//diagonal arriba izquierda
+if(posicion!=0 && array[i-1][posicion-1]==1){
+    return valor+2;
+}
+
+//diagonal arriba derecha
+if(posicion!=array[i].length-1 && array[i-1][posicion+1]==1){
+    return valor+2;
+}
+
+return valor;
+
+});
+matriz.push(resultado);
+}
 return matriz;
 }
 
