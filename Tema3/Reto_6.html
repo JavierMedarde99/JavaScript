@@ -16,7 +16,11 @@
         let frutas = ["aguacate", "pera", "manzana", "naranja", "tomate", "granada", "mango", "litchi", "nispero"];
         // muestra las frutas como elementos li y su nodo padre será el ul frutas
         frutas.map(e=>{
-       
+            let nodoFruta = document.createElement("li");
+          let texto = document.createTextNode(e);
+          nodoFruta.appendChild(texto);
+          let padre = document.getElementById("frutas");
+          padre.appendChild(nodoFruta);
         })
        
     </script>
