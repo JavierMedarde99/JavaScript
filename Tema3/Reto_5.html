@@ -12,11 +12,11 @@ let frutas = ["aguacate","pera","manzana","naranja","tomate","granada", "mango",
 let tropicales = ["aguacate", "mango", "litchi","nispero"];
 let tropicStock = [{fruta:"aguacate",stock:50}, {fruta:"mango",stock:10}, {fruta:"litchi",stock:20},{fruta:"nispero",stock:25}];
 // frutas del array frutas que sean tropicales
-
+console.log(frutas.filter(f=>tropicales.find(t=>t==f)))
 // frutas del array frutas que NO sean tropicales
-
+console.log(frutas.filter(f=>tropicales.find(t=>t!=f)))
 //Nombre de las frutas con un stock mayor de 21
-
+console.log(tropicStock.filter(s=>s.stock>21).map(f=>f.fruta))
 </script>
 
 </body>
