@@ -48,6 +48,15 @@
 }
 ]
 };
+
+
+const suma = valumnos['alumnos'].reduce((valoranterior,valoractual,indice)=>  valoractual['notas']['DWEC'] + valoranterior,0 );
+
+console.log("La suma de las notas son: "+suma);
+
+const media = suma / valumnos['alumnos'].length;
+
+console.log("La media de las notas son: "+media);
     </script>
 </body>
 </html>
