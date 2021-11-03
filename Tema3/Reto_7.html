@@ -17,7 +17,7 @@
         let tropicStock = [{fruta:"aguacate",stock:50}, {fruta:"mango",stock:10}, {fruta:"litchi",stock:20},{fruta:"nispero",stock:25}];
 
         // muestra las frutas tropicales con stock menor a 40 como elementos li y su nodo padre será el ul frutas
-        tropicStock.filter(s=>s.stock>40).map(f=>{
+        tropicStock.filter(s=>s.stock<40).map(f=>{
             let nodoFruta = document.createElement("li");
           let texto = document.createTextNode(f.fruta);
           nodoFruta.appendChild(texto);
