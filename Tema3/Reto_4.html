@@ -45,6 +45,13 @@ var valumnos = {
 };
 
 
+var Notas = valumnos['alumnos'].map(a=>Object.values(a['notas'])).flat(1);
+console.log(Notas.reduce((valoranterior,valoractual,indice)=>  valoractual + valoranterior )/ Notas.length);
+
+
+
+
+
 </script>
 </body>
 </html>
