@@ -8,10 +8,36 @@
 
 <script>
 
-var carrakos = ["Chevrolet", "Tesla", "BMW",["Honda", "Infiniti",["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep",["KTM", "Nissan", "Isuzu"]]];
+var carrakos = [
+"Chevrolet", 
+"Tesla", 
+"BMW",
+    ["Honda", "Infiniti",
+        ["Lexus", "Mercedes", "Kia"]
+    , "Hyunday"],
+    ["Mazda", "Mercedes", "Jeep",
+        ["KTM", "Nissan", "Isuzu"]]];
 
 
+function ArrayCoches(array,nodo){
+    
+array.map(c=>{
+    if(c.isArray){
+        let nodoCoche = document.createElement("ul");
+    }
+    let nodoCoche = document.createElement("li");
+    let texto = document.createTextNode(c);
+    nodoCoche.appendChild(texto);
+    let padre = document.getElementById(nodo);
+          padre.appendChild(nodoCoche);
+         
+}
+    
 
+);
+}
+
+ArrayCoches(carrakos,"carrakos");
 </script>
 </body>
 </html>
