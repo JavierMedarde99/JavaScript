@@ -8,7 +8,14 @@
 var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald","Ivar","Olaf","Bjorn","Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming","Angantyr","Horik"]}]}';
 // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
 
+let vikingos= JSON.parse(vikings);
 
+function esta(nombre)  {
+vikingos.vikingos.find(e => e.reyes.find(r => r==nombre)) ? console.log(nombre+" es rey") : console.log(nombre+" NO es rey");
+}
+
+esta("Hakon");
+esta("Felipe")
 </script>
 
 </body>
