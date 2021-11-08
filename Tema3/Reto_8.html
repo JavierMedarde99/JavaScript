@@ -22,7 +22,7 @@ var carrakos = [
 function ArrayCoches(array,nodo){
     
 array.map(c=>{
-    if(c.isArray(c)){
+    if(array.isArray(c)){
         let nodoCocheNew = document.createElement("ul");
         nodo.appendChild(nodoCocheNew);
         ArrayCoches(e,nodoCocheNew);
