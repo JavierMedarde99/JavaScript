@@ -22,15 +22,17 @@ var carrakos = [
 function ArrayCoches(array,nodo){
     
 array.map(c=>{
-    if(c.isArray){
-        let nodoCoche = document.createElement("ul");
-    }
+    if(c.isArray(c)){
+        let nodoCocheNew = document.createElement("ul");
+        nodo.appendChild(nodoCocheNew);
+        ArrayCoches(e,nodoCocheNew);
+    }else{
     let nodoCoche = document.createElement("li");
     let texto = document.createTextNode(c);
     nodoCoche.appendChild(texto);
     let padre = document.getElementById(nodo);
           padre.appendChild(nodoCoche);
-         
+      }   
 }
     
 
