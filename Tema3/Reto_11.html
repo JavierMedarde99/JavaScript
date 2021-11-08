@@ -8,8 +8,24 @@
 var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald",["Ivar",["Olaf","Lars","Lasse"],"Bjorn"],"Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming",["Angantyr","Sarunas"],"Horik"]}]}';
 // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
 
+let vikingos= JSON.parse(vikings);
 
+const  CuantosRey=(nombre,array)=>{
+   let cuantos=0;
+        if(Array.isArray(array)){
+           array.map(x=> cuantos+esRey(nombre,x));
+        }else{
+            if(arr==nombre) cuantos++;
+        }
+    };
+
+const esRey = (rey)=>{
+    vikings.vikingos.find(e=>e.reyes.find(r=>CuantosRey(r.rey)>0));
+}
+
+
+esRey("Ivar");
+esRey("Hola");
 </script>
-
 </body>
 </html>
