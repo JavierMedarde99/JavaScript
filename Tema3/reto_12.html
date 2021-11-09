@@ -11,6 +11,28 @@
         let carrakos = ["Chevrolet", "Tesla", "BMW",["Honda", "Infiniti",["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep",["KTM", "Nissan", "Isuzu"]]];
 let xungos = [{nombre:"Bruce Lee",carros:["Chevrolet", "Tesla", "BMW"]},{nombre:"Steven Seagal",carros:["Mazda", "Jeep", "Nissan"]},{nombre:"YakiChan",carros:["Lexus", "Mercedes", "Kia"]}]
 
+let lista=[];
+
+let visualiza=(arr)=>{
+    arr.map(e=>{
+        if(Array.isArray(e)){
+                visualiza(e)
+        }else{
+                let texto=new Object();
+                texto.nombre=e;
+                let elemento = xungos.find(x=>x.carros.find(c=>c==e));
+                if(typeof elemento=='undefine'){
+                        texto.propietario="nadie";
+                }else{
+                    texto.propietario=elemento.nombre;
+                }
+                lista.push(texto);
+    }
+})
+}
+
+visualiza(carrakos)
+console.log(lista);
     </script>
 </body>
 </html>
