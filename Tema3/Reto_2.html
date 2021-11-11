@@ -8,7 +8,9 @@
 var cars = ["Saab", "Volvo", "BMW",["Honda", "Toyota",["Lexus", "Mercedes", "Lada"], "Hyunday"]];
 var carrakos = ["Chevrolet", "Tesla", "BMW",["Honda", "Infiniti",["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep",["KTM", "Nissan", "Isuzu"]]];
 //Alguien sabe hacer una lista única de coches con los dos arrays (sin repeticiones)?
-
+coche=cars.flat(3);
+coche2 = carrakos.flat(3);
+console.log(coche.filter(e=> coche2.map(f => e==f ? e : "")));
 //Alguien sabría decirme los coches de carrakos que no estén en cars?
 
 var cars = ["Saab", "Volvo", "BMW",["Honda", "Toyota",["Lexus", "Mercedes", "Lada"], "Hyunday"]];
