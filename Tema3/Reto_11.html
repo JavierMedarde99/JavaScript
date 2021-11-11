@@ -6,26 +6,28 @@
 <body>
 <script>
 var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald",["Ivar",["Olaf","Lars","Lasse"],"Bjorn"],"Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming",["Angantyr","Sarunas"],"Horik"]}]}';
-// skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
+vikings = JSON.parse(vikings)
 
-let vikingos= JSON.parse(vikings);
+const esrey = (rey)=>{
+vikings.vikingos.find(e=>e.reyes.find(r=>buscaman(r,rey)>0))?console.log(rey+" es rey vikingo"):console.log(rey+" no es rey vikingo")
+};
 
-const  CuantosRey=(nombre,array)=>{
-   let cuantos=0;
-        if(Array.isArray(array)){
-           array.map(x=> cuantos+esRey(nombre,x));
-        }else{
-            if(arr==nombre) cuantos++;
-        }
-    };
-
-const esRey = (rey)=>{
-    vikings.vikingos.find(e=>e.reyes.find(r=>CuantosRey(r.rey)>0));
+const buscaman=(arr,nombre)=>{
+let cuantos=0;
+if (Array.isArray(arr)) {
+arr.map(x=>cuantos+=buscaman(x,nombre))
+}else{
+if (arr==nombre) cuantos++
 }
 
+return cuantos;
+}
 
-esRey("Ivar");
-esRey("Hola");
+esrey("Harald")
+esrey("Emerith")
+esrey("Lasse")
+
+console.log(vikings)
 </script>
 </body>
 </html>
