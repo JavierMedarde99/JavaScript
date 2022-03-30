@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>STALINGRADO</h1>
+    <p id="matriz"></p> 
+    <h2 id="ganador"></h2>
+
+    <script>
+var battlefield="";
+
+const muestraMatriz=()=>{
+    let m="";
+    for (let i=0;i<battlefield.length;i++){
+        for (let j=0; j< battlefield[i].length;j++){
+            if (battlefield[i][j]==""){
+                m+="_&nbsp;"                
+            }else{
+                m+=battlefield[i][j]+"&nbsp;"
+            }
+        }
+        m+="<br>"
+    }
+    document.getElementById("matriz").innerHTML=m;
+}
+
+const daleAJAX=()=>{
+    let xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if (this.readyState==4 && this.status==200){
+            recuperaDatos(this);
+        }
+    };
+    xhttp.open("GET","stalingrado.php",true);
+    xhttp.send();
+}
+const recuperaDatos=(xml)=>{
+    //console.log(xml);
+    let objJSON = xml.responseText;
+    battlefield = JSON.parse(objJSON).battlefield;
+    muestraMatriz();
+    ganador();
+}
+
+const ganador=()=>{
+    let Ai=-1, Aj=-1;
+    for (let i=0;i<battlefield.length;i++){
+        for (let j=0; j< battlefield[i].length;j++){
+            if (battlefield[i][j]=="A"){
+                Ai=i;
+                Aj=j;
+            }
+        }
+    }
+    console.log(Ai+" "+Aj);
+    let winner = checkWinner(Ai,Aj);
+    if (winner=="A"){
+        document.getElementById("ganador").innerHTML ="LOS GANADORES SON LOS ALEMANES"
+    }else{
+        document.getElementById("ganador").innerHTML ="LOS GANADORES SON LOS RUSOS"
+    }
+}
+
+function PANDEMIC(i,j){ 
+    battlefield[i][j]=="*";
+ //izquierda
+    if(j>0 && battlefield[i][j-1]!="R"){
+       
+        return checkWinner(i,j-1);
+}
+
+//derecha
+if(j<battlefield.length-1 && battlefield[i][j+1]!="R"){
+   
+        return checkWinner(i,j+1);
+}
+
+//arriba
+if(i>0 && battlefield[i-1][j]!="R"){
+   
+        return checkWinner(i-1,j);
+}
+
+//abajo
+if(i<battlefield[i].length-1 && battlefield[i+1][j]!="R"){
+    
+        return checkWinner(i+1,j);
+}
+if(i==battlefield.length && j==battlefield[i].length){
+    return "A";
+}
+}
+const checkWinner=(i,j)=>{
+    if (i<0 || j<0) return "R";
+    // PANDEMIC
+PANDEMIC(i,j);
+   
+
+    //MIRO A VER SI QUEDA ALGÚN ALEMAN
+    for (let i=0;i<battlefield.length;i++){
+        for (let j=0; j< battlefield[i].length;j++){
+            if (battlefield[i][j]=="A") return "R";
+        }
+    }
+    return "A";
+}
+
+daleAJAX();
+    </script>
+
+</body>
+
+</html>

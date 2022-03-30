@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REYES GODOS</title>
+</head>
+
+<body>
+    <ul id="ulgodos">
+
+    </ul>
+    <p id="godos"></p>
+
+    <script>
+        function recupera() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                }
+            };
+            xmlhttp.open("GET", "godos.php", true);
+            xmlhttp.send();
+        }
+        recupera();
+        console.log("hola");
+    </script>
+</body>
+
+</html>

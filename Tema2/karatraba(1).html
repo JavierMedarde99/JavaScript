@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Recorrido array ordenado</title>
+</head>
+<body>
+<h1>Recorrido array ordenado</h1>
+<script>
+
+
+
+    for (let i=0;i<10;i++) console.log(Mostrar(i))
+
+function Mostrar(indice){
+     
+       if (indice < 2){
+           return 1;
+       }
+       return Mostrar(indice-1) + Mostrar(indice-2) + 1;
+}
+
+</script>
+</body>
+</html>

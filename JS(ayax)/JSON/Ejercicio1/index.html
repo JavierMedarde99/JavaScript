@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GODOS LOCALHOST</title>
+</head>
+
+<body>
+    <ul id="godosul"> </ul>
+    <script>
+        function ArrayNodos(array, nodo) {
+            this.responseText.map(g => {
+                if (Array.isArray(g)) {
+                    let godonew = document.createElement("ul");
+                    nodo.apprendChild(godonew);
+                    ArrayNodos(g, godonew);
+                } else {
+                    let nodoGodo = document.createElement("li");
+                    let texto = document.createTextNode(g);
+                    nodoGodo.appendChild(texto);
+                    let padre = document.getElementById(nodo);
+                    padre.appendChild(nodoGodo);
+                }
+            })
+        }
+
+        function recupera() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                        ArrayNodos(this.responseText,"godosul");
+                }
+            };
+            xmlhttp.open("GET", "godos.php", true);
+            xmlhttp.send();
+        }
+        recupera();
+        console.log("hola")
+    </script>
+</body>
+
+</html>
